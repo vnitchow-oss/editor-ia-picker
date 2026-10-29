@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Autorizar materiais de produção</title></head><body>
+<h1>Selecionar materiais no Google Drive</h1>
+<p>Selecione individualmente o manifesto, o vídeo e o áudio. Selecionar uma pasta não autoriza seus arquivos.</p>
+<p>Esta página não recebe senhas, Client secret ou refresh token. A autorização ocorre na janela do Google.</p>
+<label>Client ID público <input id="client" autocomplete="off"></label><br>
+<label>API key restrita ao site <input id="key" autocomplete="off"></label><br>
+<label>Número do projeto Google <input id="project" autocomplete="off"></label><br>
+<button id="select" disabled>Autorizar e selecionar arquivos</button>
+<button id="clear">Limpar seleção desta página</button>
+<p id="status" role="status">Carregando bibliotecas oficiais do Google…</p>
+<label>Copie este JSON para DRIVE_SELECTED_FILE_IDS no GitHub:<br><textarea id="ids" rows="5" cols="70" readonly>[]</textarea></label>
+<ul id="files"></ul>
+<p>Limpar a lista não revoga permissões concedidas no Google. Para revogar, remova a conexão na sua Conta Google.</p>
+<script src="picker.js"></script>
+<script async src="https://apis.google.com/js/api.js" onload="pickerLoaded()"></script>
+<script async src="https://accounts.google.com/gsi/client" onload="identityLoaded()"></script>
+</body></html>
